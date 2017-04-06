@@ -37,6 +37,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     private GoogleMap mMap;
     private Button btChangeType;
+    private Button btZoomIn;
+    private Button btZoomOut;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,16 +98,44 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 search();
             }
         });
+        btZoomIn = (Button) findViewById(R.id.btZoomIn);
+        btZoomOut = (Button) findViewById(R.id.btZoomOut);
         btChangeType.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                    if(mMap.getMapType()== GoogleMap.MAP_TYPE_NORMAL){
-                        mMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
-                    }else {
-                        mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
-                    }
+                changeType();
             }
         });
+
+        btZoomIn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                    zoomIn();
+            }
+        });
+
+        btZoomOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                 zoomOut();
+            }
+        });
+    }
+
+    private void zoomIn() {
+            mMap.animateCamera(CameraUpdateFactory.zoomIn());
+    }
+
+    private void zoomOut() {
+            mMap.animateCamera(CameraUpdateFactory.zoomOut());
+    }
+
+    private void changeType() {
+        if (mMap.getMapType() == GoogleMap.MAP_TYPE_NORMAL) {
+            mMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
+        } else {
+            mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+        }
     }
 
     private void search() {

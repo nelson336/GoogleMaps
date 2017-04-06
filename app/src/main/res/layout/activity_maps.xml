@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="5dp">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -47,10 +48,47 @@
         </LinearLayout>
     </RelativeLayout>
 
-    <fragment
-        android:id="@+id/map"
-        android:name="com.google.android.gms.maps.SupportMapFragment"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context="br.com.maps.MapsActivity"/>
+        android:layout_height="wrap_content">
+
+        <fragment
+            android:id="@+id/map"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_toLeftOf="@+id/containerButtons2"
+            tools:context="br.com.maps.MapsActivity"
+            tools:ignore="RtlHardcoded"/>
+
+        <LinearLayout
+            android:id="@+id/containerButtons2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:orientation="vertical"
+            tools:ignore="RtlHardcoded">
+
+            <Button
+                android:id="@+id/btZoomIn"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="5dp"
+                android:text="@string/More_symbol"
+                tools:ignore="ButtonStyle"/>
+
+            <Button
+                android:id="@+id/btZoomOut"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="5dp"
+                android:text="@string/subtraction_symbol"
+                tools:ignore="ButtonStyle"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
 </LinearLayout>

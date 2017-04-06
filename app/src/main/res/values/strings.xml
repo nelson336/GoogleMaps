@@ -3,4 +3,6 @@
     <string name="title_activity_maps">Map</string>
     <string name="search">Buscar</string>
     <string name="type">Tipo</string>
+    <string name="More_symbol">+</string>
+    <string name="subtraction_symbol">-</string>
 </resources>
